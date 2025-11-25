@@ -1,0 +1,123 @@
+---
+uid: iDirect_Platform_technical
+---
+
+# iDirect Platform
+
+## About
+
+The iDirect Platform connector integrates with the iDirect Evolution NMS, a centralized system for managing satellite communication networks. It retrieves and organizes real-time operational data such as remote terminal status, carrier configurations, bandwidth usage, and hardware health. By structuring this information into clear sections, the connector enables efficient monitoring and control of the entire iDirect platform from a single DataMiner element.
+
+## Configuration
+ 
+DB configuration is needed to initialize the communication with the NMS.
+On the element, we can find page "Configuration" where it's available a table to set up the Database configuration. After adding the DB server IP and the username/password configuration, the element should be ready to use.
+
+
+## How to Use
+
+The connector organizes the NMS data into several logical sections. Operators can navigate these sections to gain detailed insights into remote terminal performance, network behavior, bandwidth allocation, and chassis health.
+
+The typical use flow includes:
+- Reviewing **General** and **Remote Platforms** to validate remote terminal status.
+- Monitoring **Network Summary** for bandwidth usage trends and QoS group performance.
+- Inspecting **Linecard Status** for hardware-level issues.
+- Verifying **Polling Configuration** to ensure continuous monitoring stability.
+
+---
+
+## General
+
+The **General** section provides a summary of VSAT remote terminals, including:
+
+- Platform ID  
+- Username  
+- Customer  
+- Modem role  
+- Operational state  
+- Uptime  
+- Serial number  
+- Management IP address  
+- Additional performance metrics  
+
+This view allows operators to quickly assess the health and connectivity of remote terminals.
+
+![General](~/connector/images/iDirect_Platform_General.png)
+
+---
+
+## Remote Platforms
+
+The **Remote Platforms** section provides detailed information about remote terminals and their inroute groups. Metrics include:
+
+- Number of remotes per inroute group  
+- Burst traffic  
+- Actual capacity  
+- Available bandwidth  
+- Utilization  
+
+Additional tables display:
+- MODCOD composition  
+- Symbol rate distributions  
+
+![Inroute Group Statistics](~/connector/images/iDirect_Platform_Network_InrouteGroups.png)
+![DVB-S2 Inroute Group Details](~/connector/images/iDirect_Platform_Network_DVB-S2_InrouteGroups.png)
+![Inroute Group MODCOD Composition](~/connector/images/iDirect_Platform_Inroute_Group_Composition_Table.png)
+
+---
+
+## Network Summary
+
+The **Network Summary** section provides insights into overall network performance. It includes:
+
+- Active networks and their ID  
+- Downstream and upstream rates  
+- Teleport IDs  
+- Booked bandwidth  
+
+It also shows:
+- QoS groups (bandwidth allocation, utilization, priority levels)  
+- MODCOD distribution across the network  
+
+![Active Network Summary](~/connector/images/iDirect_Platform_Active_Networks.png)
+![QoS Group Bandwidth Allocation](~/connector/images/iDirect_Platform_Network_Qos_Groups.png)
+![MODCOD Distribution](~/connector/images/iDirect_Platform_Network_MODCOD.png)
+
+---
+
+## Linecard Status
+
+The **Linecard Status** section includes operational and hardware details for each installed linecard:
+
+- Linecard type  
+- Current status  
+- Temperature  
+- Transmit power  
+- Error counts  
+- Carrier assignments  
+- Modulation settings  
+
+Chassis-level views provide:
+- Slot mapping  
+- Overall chassis health  
+
+![Linecard Operational Metrics](~/connector/images/iDirect_Platform_Linecard.png)
+![Linecard Carrier Frequency](~/connector/images/iDirect_Platform_Linecard_Carriers.png)
+![Carrier Modulation](~/connector/images/iDirect_Platform_Carriers.png)
+![Chassis Health Overview](~/connector/images/iDirect_Platform_Chassis.png)
+![Chassis Slot/Linecard Mapping](~/connector/images/iDirect_Platform_Chassis_Tree.png)
+
+---
+
+## Polling Configuration
+
+The **Polling Configuration** section shows the polling status and Dynamic Virtual Element (DVE) state for each linecard. This includes:
+
+- Polling enabled/disabled  
+- DVE state  
+- Last active timestamp  
+
+This allows operators to verify that each linecard is actively monitored and that performance data remains accurate and up to date.
+
+![Polling/DVE Configuration Linecards](~/connector/images/iDirect_Platform_Linecard_DVE_Config.png)
+
